@@ -1,0 +1,4 @@
+programa HolaMundo
+
+variable nombre = "mundo"
+mostrar "Hola, " + nombre
