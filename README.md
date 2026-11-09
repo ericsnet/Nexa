@@ -93,15 +93,15 @@ También funciona `preguntar "¿Cómo te llamas?" y guardar en nombre`.
 Requiere Node.js 18 o posterior.
 
 ```bash
-node bin/nexa.js ejemplos/hola_mundo.nx
-node bin/nexa.js ejecutar ejemplos/hola_mundo.nx
+node bin/nexa.js examples/hola_mundo.nx
+node bin/nexa.js ejecutar examples/hola_mundo.nx
 ```
 
 Para instalar el comando `nexa` globalmente desde una copia local del repositorio:
 
 ```bash
 npm link
-nexa ejemplos/hola_mundo.nx
+nexa examples/hola_mundo.nx
 ```
 
 Ejecuta las pruebas con:
