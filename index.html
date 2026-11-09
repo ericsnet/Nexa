@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b13">
+  <meta name="description" content="Prueba Nexa, un lenguaje de programación experimental en español, directamente desde tu navegador.">
+  <title>Nexa — Playground</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080b13;--panel:#101725;--panel2:#0c1320;--line:#1c2a3c;--text:#edf5ff;--muted:#91a2b9;--cyan:#67e8f9;--blue:#5b8cff;--green:#86efac;--red:#fda4af;--radius:20px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 70% -10%,#142b50 0,transparent 42%),radial-gradient(ellipse at 0% 40%,#102337 0,transparent 35%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+    a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em}.mark{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#67e8f9,#5277ff);display:grid;place-items:center;color:#07101d;font-size:19px;font-weight:900;box-shadow:0 0 28px #4bdcff40}.nav{display:flex;gap:24px;color:var(--muted);font-size:13px}.nav a{color:inherit}.hero{padding:64px 0 36px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}.eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid #67e8f938;background:#67e8f90c;border-radius:999px;padding:6px 11px;color:#a5f3fc;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.065em;margin:22px 0 18px}.gradient{background:linear-gradient(95deg,#f8fdff 5%,#8deafa 48%,#8baaff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:610px;font-size:17px}.hero-card{border:1px solid #36506c80;border-radius:24px;padding:24px;background:linear-gradient(145deg,#142238d9,#0c1320ed);box-shadow:0 24px 90px #0008;position:relative;overflow:hidden}.hero-card:after{content:"";position:absolute;width:210px;height:210px;right:-90px;top:-110px;background:#53d9ff20;filter:blur(28px);border-radius:50%}.orb{width:74px;height:74px;border-radius:22px;background:linear-gradient(145deg,#70e9f7,#4d69ed);display:grid;place-items:center;color:#07101d;font-size:37px;font-weight:900;box-shadow:0 0 50px #4bcfff35;margin-bottom:22px}.hero-card strong{font-size:18px}.hero-card p{font-size:13px;margin-bottom:0}.stats{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}.stat{color:var(--muted);font-size:11px}.stat b{display:block;color:var(--text);font-size:17px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:32px 0 16px}.section-head h2{margin:0;font-size:22px;letter-spacing:-.03em}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.playground{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:14px}.panel{background:linear-gradient(180deg,#111b2a,#0c1420);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 70px #0004}.panel-head{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid var(--line);background:#ffffff04}.panel-title{display:flex;align-items:center;gap:10px;font-weight:650;font-size:13px}.fileicon{width:25px;height:25px;border-radius:7px;background:#153a50;color:var(--cyan);display:grid;place-items:center;font-size:11px;font-weight:800}.muted{color:var(--muted);font-size:11px}.editor-wrap{position:relative}.editor{display:block;width:100%;height:440px;resize:vertical;border:0;outline:0;background:#080e18;color:#d8e9ff;padding:20px 22px;font:13px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:4;white-space:pre;overflow:auto;caret-color:var(--cyan)}.editor:focus{box-shadow:inset 0 0 0 1px #67e8f94d}.toolbar{padding:13px 16px;display:flex;align-items:center;gap:9px;border-top:1px solid var(--line);flex-wrap:wrap}.btn{border:1px solid #2b4058;background:#172437;color:var(--text);padding:9px 14px;border-radius:10px;font-weight:650;font-size:12px;cursor:pointer;transition:.18s}.btn:hover{border-color:#67e8f9a0;transform:translateY(-1px)}.btn.primary{background:linear-gradient(100deg,#65e7f5,#7295ff);color:#06111c;border:0;box-shadow:0 8px 24px #56caff25}.btn.ghost{background:transparent;color:var(--muted)}.spacer{flex:1}.select{max-width:180px;background:#101c2c;color:var(--text);border:1px solid #2b4058;border-radius:9px;padding:9px 10px;font-size:12px}.console{min-height:440px;display:flex;flex-direction:column}.console-body{padding:17px;flex:1;background:linear-gradient(180deg,#09111c,#0b1421);font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;overflow:auto;max-height:440px}.console-line{white-space:pre-wrap;overflow-wrap:anywhere;color:#d9e9f8}.console-line.output:before{content:"> ";color:var(--cyan)}.console-line.error{color:var(--red)}.console-line.meta{color:#8295ad}.console-empty{color:#71849d}.console-foot{padding:12px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.status{display:flex;align-items:center;gap:7px}.status:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}.status.error:before{background:var(--red)}.below{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:16px 0 58px}.info{padding:18px;border:1px solid var(--line);background:#0e1724c9;border-radius:16px}.info .num{font:700 11px ui-monospace,monospace;color:var(--cyan)}.info h3{font-size:14px;margin:9px 0 5px}.info p{color:var(--muted);font-size:12px;margin:0}.docs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:70px}.doc{padding:21px;border:1px solid var(--line);background:#0e1724d9;border-radius:18px}.doc h3{margin:0 0 12px;font-size:15px}.doc pre{margin:0;background:#080e18;border:1px solid #1c2b3d;border-radius:12px;padding:15px;overflow:auto;color:#d7edff;font:12px/1.8 ui-monospace,monospace}.doc p{color:var(--muted);font-size:12px}.footer{border-top:1px solid #ffffff12;padding:24px 0 34px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.kbd{border:1px solid #34445b;border-radius:5px;padding:1px 5px;color:#c5d8ed;font-size:10px}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:44px}.hero-card{max-width:500px}.playground{grid-template-columns:1fr}.console{min-height:240px}.console-body{min-height:190px;max-height:300px}.below{grid-template-columns:1fr}.docs{grid-template-columns:1fr}.editor{height:360px}}
+    @media(max-width:520px){.wrap{width:min(100% - 24px,1180px)}.nav{gap:12px;font-size:11px}.topbar{height:64px}.hero{padding-top:34px}.hero p{font-size:14px}.section-head{align-items:start;flex-direction:column}.panel-head{padding:0 12px}.editor{padding:15px;height:330px;font-size:12px}.toolbar{padding:10px}.btn{padding:9px 11px}.select{max-width:140px}}
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#inicio" aria-label="Nexa inicio"><span class="mark">N</span><span>N E X A</span></a>
+    <nav class="nav"><a href="#playground">Playground</a><a href="#sintaxis">Sintaxis</a><a href="https://github.com/ericsnet/Nexa" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+  </header>
+  <main class="wrap" id="inicio">
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Lenguaje experimental · versión 0.1</span>
+        <h1><span class="gradient">Programa en</span><br>Nexa.</h1>
+        <p>Un lenguaje de programación que habla tu idioma. Escribe instrucciones en español, mezcla sintaxis natural y compacta y ejecuta tus primeros programas directamente en el navegador.</p>
+      </div>
+      <aside class="hero-card">
+        <div class="orb">N</div>
+        <strong>Tu código. Tus reglas.</strong>
+        <p>Nexa está empezando: un intérprete pequeño, transparente y hecho para crecer paso a paso.</p>
+        <div class="stats"><div class="stat"><b>0.1.0</b>Versión</div><div class="stat"><b>.nx</b>Extensión</div><div class="stat"><b>MIT</b>Licencia</div></div>
+      </aside>
+    </section>
+
+    <section id="playground">
+      <div class="section-head"><div><h2>Prueba Nexa online</h2><p>No necesitas descargar ni instalar nada. Escribe código y pulsa ejecutar.</p></div><span class="muted">Motor local en tu navegador</span></div>
+      <div class="playground">
+        <section class="panel">
+          <div class="panel-head"><div class="panel-title"><span class="fileicon">NX</span> programa.nx</div><span class="muted">Editor Nexa</span></div>
+          <div class="editor-wrap"><textarea id="source" class="editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Código Nexa" wrap="off">programa HolaMundo
+
+variable nombre = "mundo"
+variable numero = 5
+
+mostrar "Hola, " + nombre
+mostrar "El resultado es: " + (numero * 3)
+
+si numero es mayor que 3 haz:
+    mostrar "La condición funciona"
+si no:
+    mostrar "La condición no se cumple"
+fin
+
+repetir 3 veces:
+    mostrar "Nexa funciona"
+fin</textarea></div>
+          <div class="toolbar">
+            <button class="btn primary" id="run">▶ Ejecutar</button>
+            <button class="btn" id="reset">Restablecer</button>
+            <select class="select" id="examples" aria-label="Cargar ejemplo"><option value="">Cargar ejemplo…</option><option value="hola">Hola mundo</option><option value="variables">Variables y operaciones</option><option value="condiciones">Condiciones</option><option value="bucles">Bucles</option><option value="entrada">Preguntar al usuario</option></select>
+            <span class="spacer"></span><span class="muted"><span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> ejecutar</span>
+          </div>
+        </section>
+        <section class="panel console">
+          <div class="panel-head"><div class="panel-title">Terminal <span class="muted">/ salida</span></div><button class="btn ghost" id="clear">Limpiar</button></div>
+          <div class="console-body" id="output" aria-live="polite"><div class="console-empty">La salida de tu programa aparecerá aquí.</div></div>
+          <div class="console-foot"><span class="status" id="status">Listo para ejecutar</span><span id="steps">0 instrucciones</span></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="below" aria-label="Características">
+      <article class="info"><span class="num">01 / SINTAXIS</span><h3>Español natural y compacto</h3><p>Puedes escribir «crear variable» o simplemente «variable». Las dos formas son válidas.</p></article>
+      <article class="info"><span class="num">02 / TIPOS</span><h3>Inferencia automática</h3><p>Nexa detecta si una variable contiene un número, texto o valor lógico.</p></article>
+      <article class="info"><span class="num">03 / PRIVACIDAD</span><h3>Se ejecuta en tu navegador</h3><p>El código de este playground se procesa localmente. No se envía a un servidor.</p></article>
+    </section>
+
+    <section id="sintaxis">
+      <div class="section-head"><div><h2>Empieza con lo básico</h2><p>La gramática de Nexa 0.1 es pequeña a propósito.</p></div></div>
+      <div class="docs">
+        <article class="doc"><h3>Variables y operaciones</h3><pre>crear variable edad con valor 15
+variable precio = 12
+resultado = precio * 2
+mostrar resultado</pre><p>También puedes usar números decimales, textos, valores verdaderos y falsos.</p></article>
+        <article class="doc"><h3>Condiciones</h3><pre>si edad es mas grande que 18 haz:
+    mostrar "Mayor de edad"
+si no:
+    mostrar "Menor de edad"
+fin</pre><p>También funciona la forma compacta: <code>si (edad &gt; 18):</code>.</p></article>
+        <article class="doc"><h3>Repeticiones</h3><pre>repetir 3 veces:
+    mostrar "Hola"
+fin
+
+variable i = 0
+mientras i es menor que 3 haz:
+    mostrar i
+    i = i + 1
+fin</pre><p>Los bucles tienen límites de seguridad en esta versión experimental.</p></article>
+        <article class="doc"><h3>Entrada de datos</h3><pre>nombre = preguntar("¿Cómo te llamas?")
+mostrar "Hola, " + nombre
+
+# También puedes escribir:
+preguntar "Tu ciudad:" y guardar en ciudad</pre><p>El navegador mostrará una ventana para introducir el valor.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>© 2026 Nexa · Proyecto experimental de código abierto</span><span><a href="https://github.com/ericsnet/Nexa" target="_blank" rel="noreferrer">Código fuente en GitHub</a> · Licencia MIT</span></footer>
+  <script src="nexa.js"></script>
+  <script>
+    const initialCode = document.getElementById('source').value;
+    const editor = document.getElementById('source');
+    const output = document.getElementById('output');
+    const status = document.getElementById('status');
+    const steps = document.getElementById('steps');
+    const samples = {
+      hola: 'programa HolaMundo\n\nmostrar "Hola, mundo"',
+      variables: 'variable base = 12\ncrear variable altura con valor 4\nresultado = base * altura\nmostrar "El resultado es: " + resultado',
+      condiciones: 'variable temperatura = 27\n\nsi temperatura es mayor que 25 haz:\n    mostrar "Hace calor"\nsi no:\n    mostrar "No hace tanto calor"\nfin',
+      bucles: 'variable contador = 1\n\nmientras contador es menor o igual que 5 haz:\n    mostrar contador\n    contador = contador + 1\nfin\n\nrepetir 2 veces:\n    mostrar "¡Otra vuelta!"\nfin',
+      entrada: 'preguntar "¿Cómo te llamas?" y guardar en nombre\nmostrar "Encantado, " + nombre'
+    };
+    function addLine(text, kind='output') {
+      const line = document.createElement('div');
+      line.className = 'console-line ' + kind;
+      line.textContent = text;
+      output.appendChild(line);
+    }
+    function runCode() {
+      output.replaceChildren();
+      status.classList.remove('error');
+      status.textContent = 'Ejecutando…';
+      steps.textContent = 'Procesando';
+      try {
+        const result = Nexa.run(editor.value, { output: value => addLine(value, 'output') });
+        if (!output.childElementCount) addLine('Programa finalizado sin mostrar resultados.', 'meta');
+        status.textContent = 'Ejecución completada';
+        steps.textContent = result.steps + ' instrucciones · ' + Object.keys(result.variables).length + ' variables';
+      } catch (error) {
+        addLine(error.message || String(error), 'error');
+        status.textContent = 'Error de ejecución';
+        status.classList.add('error');
+        steps.textContent = 'Ejecución detenida';
+      }
+    }
+    document.getElementById('run').addEventListener('click', runCode);
+    document.getElementById('reset').addEventListener('click', () => { editor.value = initialCode; output.replaceChildren(); addLine('Editor restablecido.', 'meta'); status.classList.remove('error'); status.textContent = 'Listo para ejecutar'; steps.textContent = '0 instrucciones'; });
+    document.getElementById('clear').addEventListener('click', () => { output.replaceChildren(); addLine('Terminal limpia.', 'meta'); });
+    document.getElementById('examples').addEventListener('change', event => { if (samples[event.target.value]) editor.value = samples[event.target.value]; event.target.value = ''; });
+    editor.addEventListener('keydown', event => { if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); runCode(); } });
+  </script>
+</body>
+</html>
