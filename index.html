@@ -148,7 +148,31 @@ preguntar "Tu ciudad:" y guardar en ciudad</pre><p>El navegador mostrará una ve
     document.getElementById('reset').addEventListener('click', () => { editor.value = initialCode; output.replaceChildren(); addLine('Editor restablecido.', 'meta'); status.classList.remove('error'); status.textContent = 'Listo para ejecutar'; steps.textContent = '0 instrucciones'; });
     document.getElementById('clear').addEventListener('click', () => { output.replaceChildren(); addLine('Terminal limpia.', 'meta'); });
     document.getElementById('examples').addEventListener('change', event => { if (samples[event.target.value]) editor.value = samples[event.target.value]; event.target.value = ''; });
-    editor.addEventListener('keydown', event => { if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); runCode(); } });
+    editor.addEventListener('keydown', event => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+
+        if (event.shiftKey) {
+          const lineStart = editor.value.lastIndexOf('\\n', start - 1) + 1;
+          const line = editor.value.slice(lineStart, start);
+          const indentation = line.match(/^ {1,4}/)?.[0] || (line.startsWith('\\t') ? '\\t' : '');
+          if (indentation) {
+            editor.setRangeText('', lineStart, lineStart + indentation.length, 'preserve');
+            editor.setSelectionRange(Math.max(lineStart, start - indentation.length), Math.max(lineStart, end - indentation.length));
+          }
+        } else {
+          editor.setRangeText('    ', start, end, 'end');
+        }
+        return;
+      }
+
+      if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
+        event.preventDefault();
+        runCode();
+      }
+    });
   </script>
 </body>
 </html>
