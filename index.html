@@ -155,9 +155,9 @@ preguntar "Tu ciudad:" y guardar en ciudad</pre><p>El navegador mostrará una ve
         const end = editor.selectionEnd;
 
         if (event.shiftKey) {
-          const lineStart = editor.value.lastIndexOf('\\n', start - 1) + 1;
+          const lineStart = editor.value.lastIndexOf('\n', start - 1) + 1;
           const line = editor.value.slice(lineStart, start);
-          const indentation = line.match(/^ {1,4}/)?.[0] || (line.startsWith('\\t') ? '\\t' : '');
+          const indentation = line.match(/^ {1,4}/)?.[0] || (line.startsWith('\t') ? '\t' : '');
           if (indentation) {
             editor.setRangeText('', lineStart, lineStart + indentation.length, 'preserve');
             editor.setSelectionRange(Math.max(lineStart, start - indentation.length), Math.max(lineStart, end - indentation.length));
