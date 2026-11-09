@@ -1,0 +1,17 @@
+{
+  "name": "nexa-language",
+  "version": "0.1.0",
+  "description": "Intérprete experimental de Nexa, un lenguaje de programación en español.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "nexa": "bin/nexa.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["nexa", "lenguaje", "programacion", "espanol", "interpreter"]
+}
